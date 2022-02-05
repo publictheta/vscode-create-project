@@ -11,6 +11,10 @@
     "categories": [
         "Other"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/publictheta/vscode-create-project.git"
+    },
     "keywords": [],
     "engines": {
         "vscode": "^1.63.0"
