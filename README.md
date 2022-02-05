@@ -1,10 +1,10 @@
 # `vscode-create-project`
 
-1. Set the default parent folder.
+1. Set the default root folder.
 
 ![Screenshot 1 (settings)](resources/settings.png)
 
-2. Create and open a new folder by a single command.
+2. Create and open a new folder with a single command.
 
 ![Screenshot 2 (command)](resources/command.png)
 
