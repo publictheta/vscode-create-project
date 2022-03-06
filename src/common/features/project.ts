@@ -5,14 +5,13 @@ import { getLocalization } from "../i18n"
 export async function createProject(): Promise<void> {
     const localization = getLocalization()
 
-    const isWritable = vscode.workspace.fs.isWritableFileSystem("file")
-
-    if (!isWritable) {
+    if (!vscode.workspace.fs.isWritableFileSystem("file")) {
         await vscode.window.showErrorMessage(
             localization.localize(
                 "extension.create-project.message.errorFileSystemNotWritable"
             )
         )
+
         return
     }
 
@@ -30,7 +29,12 @@ export async function createProject(): Promise<void> {
             UNTITLED
         ).fsPath.toString()
     } catch {
-        value = UNTITLED
+        await vscode.window.showErrorMessage(
+            localization.localize(
+                "extension.create-project.message.errorParseDefaultFolderPath"
+            )
+        )
+        return
     }
 
     const input = await vscode.window.showInputBox({
