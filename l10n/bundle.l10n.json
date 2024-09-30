@@ -1,0 +1,8 @@
+{
+    "This file system is not writable.": "This file system is not writable.",
+    "Failed to parse the default folder path. Please check the extension settings.": "Failed to parse the default folder path. Please check the extension settings.",
+    "Input your project folder path.": "Input your project folder path.",
+    "No input. Aborted.": "No input. Aborted.",
+    "Failed to parse the folder path: {0}": "Failed to parse the folder path: {0}",
+    "Failed to create the directory: {0}": "Failed to create the directory: {0}"
+}

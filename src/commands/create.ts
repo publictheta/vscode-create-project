@@ -1,15 +1,9 @@
 import * as vscode from "vscode"
 
-import { getLocalization } from "../i18n"
-
-export async function createProject(): Promise<void> {
-    const localization = getLocalization()
-
+export async function create() {
     if (!vscode.workspace.fs.isWritableFileSystem("file")) {
         await vscode.window.showErrorMessage(
-            localization.localize(
-                "extension.create-project.message.errorFileSystemNotWritable"
-            )
+            vscode.l10n.t("This file system is not writable."),
         )
 
         return
@@ -26,30 +20,26 @@ export async function createProject(): Promise<void> {
     try {
         value = vscode.Uri.joinPath(
             vscode.Uri.file(defaultFolder),
-            UNTITLED
+            UNTITLED,
         ).fsPath.toString()
     } catch {
         await vscode.window.showErrorMessage(
-            localization.localize(
-                "extension.create-project.message.errorParseDefaultFolderPath"
-            )
+            vscode.l10n.t(
+                "Failed to parse the default folder path. Please check the extension settings.",
+            ),
         )
         return
     }
 
     const input = await vscode.window.showInputBox({
-        title: localization.localize(
-            "extension.create-project.message.inputFolderPath"
-        ),
+        title: vscode.l10n.t("Input your project folder path."),
         value,
         valueSelection: [value.length - UNTITLED.length, value.length],
     })
 
     if (!input) {
         await vscode.window.showInformationMessage(
-            localization.localize(
-                "extension.create-project.message.infoNoInput"
-            )
+            vscode.l10n.t("No input. Aborted."),
         )
 
         return
@@ -61,10 +51,7 @@ export async function createProject(): Promise<void> {
         uri = vscode.Uri.file(input)
     } catch {
         await vscode.window.showErrorMessage(
-            localization.localize(
-                "extension.create-project.message.errorParseFolderPath",
-                input
-            )
+            vscode.l10n.t("Failed to parse the folder path: {0}", input),
         )
 
         return
@@ -74,10 +61,10 @@ export async function createProject(): Promise<void> {
         await vscode.workspace.fs.createDirectory(uri)
     } catch {
         await vscode.window.showErrorMessage(
-            localization.localize(
-                "extension.create-project.message.errorCreateDirectory",
-                uri.toString()
-            )
+            vscode.l10n.t(
+                "Failed to create the directory: {0}",
+                uri.toString(),
+            ),
         )
 
         return

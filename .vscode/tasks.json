@@ -2,69 +2,39 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "npm",
-            "script": "build",
+            "type": "shell",
+            "label": "npm run build",
+            "command": "npm run build",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": "$ts-webpack"
+            "problemMatcher": ["$ts-webpack", "$tslint-webpack"]
         },
         {
-            "type": "npm",
-            "script": "start",
+            "type": "shell",
+            "label": "npm run start",
+            "command": "npm run start",
             "group": "build",
             "isBackground": true,
-            "problemMatcher": "$ts-webpack-watch"
+            "problemMatcher": ["$ts-webpack-watch", "$tslint-webpack-watch"]
         },
         {
-            "type": "npm",
-            "script": "check",
+            "type": "shell",
+            "label": "npm run lint:script",
+            "command": "npm run lint:script",
             "group": "test"
         },
         {
-            "type": "npm",
-            "script": "lint",
+            "type": "shell",
+            "label": "npm run lint:format",
+            "command": "npm run lint:format",
             "group": "test"
         },
         {
-            "type": "npm",
-            "script": "format",
-            "group": "test"
-        },
-        {
-            "type": "npm",
-            "script": "precommit",
-            "group": "test"
-        },
-        {
-            "type": "npm",
-            "script": "test:browser",
-            "group": "test"
-        },
-        {
-            "type": "npm",
-            "script": "test:node",
-            "group": "test"
-        },
-        {
-            "type": "npm",
-            "script": "test",
-            "group": "test"
-        },
-        {
-            "type": "npm",
-            "script": "browser:chromium",
-            "group": "test"
-        },
-        {
-            "type": "npm",
-            "script": "browser:firefox",
-            "group": "test"
-        },
-        {
-            "type": "npm",
-            "script": "browser:webkit",
+            "type": "shell",
+            "label": "npm run lint",
+            "command": "npm run lint",
             "group": "test"
         }
     ]
