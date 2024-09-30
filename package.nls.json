@@ -2,11 +2,5 @@
     "extension.create-project.command.category": "Create Project",
     "extension.create-project.command.create.title": "Create a New Project",
     "extension.create-project.configuration.title": "Create Project",
-    "extension.create-project.configuration.defaultFolder.description": "Controls the default folder to which the new project folder will be created.",
-    "extension.create-project.message.inputFolderPath": "Input your project folder path.",
-    "extension.create-project.message.infoNoInput": "No input. Aborted.",
-    "extension.create-project.message.errorParseDefaultFolderPath": "Failed to parse the default folder path. Please check the extension settings.",
-    "extension.create-project.message.errorParseFolderPath": "Failed to parse the folder path.",
-    "extension.create-project.message.errorCreateDirectory": "Failed to create a directory.",
-    "extension.create-project.message.errorFileSystemNotWritable": "This file system is not writable."
+    "extension.create-project.configuration.defaultFolder.description": "Controls the default folder to which the new project folder will be created."
 }

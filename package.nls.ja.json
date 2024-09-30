@@ -2,11 +2,5 @@
     "extension.create-project.command.category": "プロジェクトの作成",
     "extension.create-project.command.create.title": "プロジェクトの作成",
     "extension.create-project.configuration.title": "プロジェクトの作成",
-    "extension.create-project.configuration.defaultFolder.description": "新しいフォルダが作成される先のデフォルトのフォルダーを制御します。",
-    "extension.create-project.message.inputFolderPath": "プロジェクトフォルダーのパスを入力してください。",
-    "extension.create-project.message.infoNoInput": "入力がありませんでした。中断します。",
-    "extension.create-project.message.errorParseDefaultFolderPath": "フォルダーパスのパースに失敗しました。拡張機能の設定を確認してください。",
-    "extension.create-project.message.errorParseFolderPath": "フォルダーパスのパースに失敗しました。",
-    "extension.create-project.message.errorCreateDirectory": "ディレクトリーの作成に失敗しました。",
-    "extension.create-project.message.errorFileSystemNotWritable": "このファイルシステムは書き込み不可能です。"
+    "extension.create-project.configuration.defaultFolder.description": "新しいフォルダが作成される先のデフォルトのフォルダーを制御します。"
 }

@@ -2,24 +2,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run Extension (Web)",
-            "type": "pwa-extensionHost",
+            "name": "Run Extension",
+            "type": "extensionHost",
             "request": "launch",
             "debugWebWorkerHost": true,
             "args": [
                 "--extensionDevelopmentPath=${workspaceFolder}",
-                "--extensionDevelopmentKind=web"
+                "--extensionDevelopmentKind=web",
+                "--profile-temp"
             ],
             "outFiles": ["${workspaceFolder}/dist/**/*.js"],
-            "preLaunchTask": "npm: start"
-        },
-        {
-            "name": "Run Extension (Node.js)",
-            "type": "extensionHost",
-            "request": "launch",
-            "args": ["--extensionDevelopmentPath=${workspaceFolder}"],
-            "outFiles": ["${workspaceFolder}/dist/**/*.js"],
-            "preLaunchTask": "npm: start"
+            "preLaunchTask": "npm run start"
         }
     ]
 }
