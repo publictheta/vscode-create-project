@@ -1,4 +1,16 @@
 import * as vscode from "vscode"
+import * as friendly from "friendly-words"
+
+function generateProjectName() {
+    const rand_pred_idx = Math.floor(Math.random() * friendly.predicates.length)
+    const rand_obj_idx = Math.floor(Math.random() * friendly.objects.length)
+
+    return (
+        friendly.predicates[rand_pred_idx] +
+        "-" +
+        friendly.objects[rand_obj_idx]
+    )
+}
 
 export async function create() {
     if (!vscode.workspace.fs.isWritableFileSystem("file")) {
@@ -9,18 +21,17 @@ export async function create() {
         return
     }
 
+    const rand_name = generateProjectName()
     const defaultFolder = vscode.workspace
         .getConfiguration("create-project")
         .get<string>("defaultFolder", "")
-
-    const UNTITLED = "untitled"
 
     let value: string
 
     try {
         value = vscode.Uri.joinPath(
             vscode.Uri.file(defaultFolder),
-            UNTITLED,
+            rand_name,
         ).fsPath.toString()
     } catch {
         await vscode.window.showErrorMessage(
@@ -34,7 +45,7 @@ export async function create() {
     const input = await vscode.window.showInputBox({
         title: vscode.l10n.t("Input your project folder path."),
         value,
-        valueSelection: [value.length - UNTITLED.length, value.length],
+        valueSelection: [value.length - rand_name.length, value.length],
     })
 
     if (!input) {
