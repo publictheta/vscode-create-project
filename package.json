@@ -39,6 +39,11 @@
                     "format": "uri-reference",
                     "description": "%extension.create-project.configuration.defaultFolder.description%",
                     "scope": "resource"
+                },
+                "create-project.defaultName": {
+                    "type": "string",
+                    "description": "%extension.create-project.configuration.defaultName.description%",
+                    "scope": "resource"
                 }
             }
         },
