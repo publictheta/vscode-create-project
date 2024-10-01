@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add an option to set the default name for compatibility with legacy behavior.
+
 ## 0.2.0 - 2024-10-01
 
 - Bump minimum required version of VS Code to 1.93.0.
