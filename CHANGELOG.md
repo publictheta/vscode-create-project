@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1 - 2024-10-03
+
+- Fix empty name not being set as the default name.
+
 ## 0.3.0 - 2024-10-03
 
 - Add an option to set the default name for compatibility with legacy behavior.
