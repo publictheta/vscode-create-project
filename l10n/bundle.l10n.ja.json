@@ -1,8 +1,15 @@
 {
     "This file system is not writable.": "このファイルシステムは書き込み不可能です。",
-    "Failed to parse the default folder path. Please check the extension settings.": "フォルダーパスのパースに失敗しました。拡張機能の設定を確認してください。",
+    "Failed to parse the default folder: {0}": "デフォルトフォルダーのパースに失敗しました: {0}",
+    "Failed to parse the default name: {0}": "デフォルト名のパースに失敗しました: {0}",
     "Input your project folder path.": "プロジェクトフォルダーのパスを入力してください。",
-    "No input. Aborted.": "入力がありませんでした。中断します。",
-    "Failed to parse the folder path: {0}": "フォルダーパスのパースに失敗しました: {0}",
+    "Failed to parse the project folder path: {0}": "プロジェクトフォルダーのパスのパースに失敗しました: {0}",
+    "The parent is not a directory: {0}": "親がディレクトリーではありませんでした: {0}",
+    "Failed to check the parent directory: {0}": "親ディレクトリーのチェックに失敗しました: {0}",
+    "Create the parent directory": "親ディレクトリーを作成する",
+    "Cancel": "キャンセル",
+    "Abort the operation": "操作を中断します",
+    "The parent directory does not exist.": "親ディレクトリーが存在しませんでした。",
+    "Do you want to create the parent directory?": "親ディレクトリーを作成しますか?",
     "Failed to create the directory: {0}": "ディレクトリーの作成に失敗しました: {0}"
 }

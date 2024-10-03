@@ -3,6 +3,8 @@
 ## Unreleased
 
 - Add an option to set the default name for compatibility with legacy behavior.
+- Add a prompt to confirm the parent directory creation.
+- Remove the abort notification.
 
 ## 0.2.0 - 2024-10-01
 
