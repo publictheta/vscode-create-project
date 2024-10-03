@@ -14,6 +14,8 @@ function generateRandomName() {
 }
 
 export async function create() {
+    const DEFAULT_NAME = "{randomName}"
+
     // Check the file system
 
     if (!vscode.workspace.fs.isWritableFileSystem("file")) {
@@ -32,7 +34,7 @@ export async function create() {
 
     const defaultName = vscode.workspace
         .getConfiguration("create-project")
-        .get<string>("defaultName", "{randomName}")
+        .get<string>("defaultName", DEFAULT_NAME)
 
     // Check `defaultFolder`
 
@@ -52,7 +54,9 @@ export async function create() {
 
     // Format `defaultName`
 
-    const name = format(defaultName, { randomName: generateRandomName })
+    const name = format(defaultName || DEFAULT_NAME, {
+        randomName: generateRandomName,
+    })
 
     // Check `defaultName`
 
