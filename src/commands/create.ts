@@ -100,6 +100,62 @@ export async function create() {
         return
     }
 
+    // Check the parent directory
+
+    const parent = vscode.Uri.joinPath(uri, "..")
+
+    try {
+        const stat = await vscode.workspace.fs.stat(parent)
+
+        if (!(stat.type & vscode.FileType.Directory)) {
+            await vscode.window.showErrorMessage(
+                vscode.l10n.t(
+                    "The parent is not a directory: {0}",
+                    parent.path,
+                ),
+            )
+
+            return
+        }
+    } catch (error) {
+        if (
+            !(error instanceof vscode.FileSystemError) ||
+            error.code !== "FileNotFound"
+        ) {
+            await vscode.window.showErrorMessage(
+                vscode.l10n.t(
+                    "Failed to check the parent directory: {0}",
+                    uri.path,
+                ),
+            )
+
+            return
+        }
+
+        // Ask to create the parent directory
+
+        const create: vscode.QuickPickItem = {
+            label: vscode.l10n.t("Create the parent directory"),
+            description: parent.path,
+        }
+
+        const cancel: vscode.QuickPickItem = {
+            label: vscode.l10n.t("Cancel"),
+            description: vscode.l10n.t("Abort the operation"),
+        }
+
+        const result = await vscode.window.showQuickPick([create, cancel], {
+            title: vscode.l10n.t("The parent directory does not exist."),
+            placeHolder: vscode.l10n.t(
+                "Do you want to create the parent directory?",
+            ),
+        })
+
+        if (result !== create) {
+            return
+        }
+    }
+
     // Create the directory
 
     try {
