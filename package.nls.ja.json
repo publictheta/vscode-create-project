@@ -1,7 +1,9 @@
 {
     "extension.create-project.command.category": "プロジェクトの作成",
-    "extension.create-project.command.create.title": "プロジェクトの作成",
+    "extension.create-project.command.create.title": "空のプロジェクトの作成",
     "extension.create-project.configuration.title": "プロジェクトの作成",
     "extension.create-project.configuration.defaultFolder.description": "新しいフォルダが作成される先のデフォルトのフォルダーを制御します。",
-    "extension.create-project.configuration.defaultName.description": "新しいプロジェクトフォルダーのデフォルトの名前を制御します。 `{randomName}` はランダムな名前に置き換えられます。 エスケープするには `{{` と `}}` を使用します。 デフォルトは `{randomName}` です。"
+    "extension.create-project.configuration.defaultName.description": "新しいプロジェクトフォルダーのデフォルトの名前を制御します。 `{randomName}` はランダムな名前に置き換えられます。 エスケープするには `{{` と `}}` を使用します。 デフォルトは `{randomName}` です。",
+    "extension.create-project.configuration.explorer.enabled.description": "エクスプローラーサイドバーに「空のプロジェクトを作成」ボタンが表示されるかどうかを制御します",
+    "extension.create-project.viewsWelcome.contents": "空のプロジェクトを作成できます。\n[空のプロジェクトを作成](command:create-project.create)"
 }

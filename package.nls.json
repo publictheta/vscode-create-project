@@ -1,7 +1,9 @@
 {
     "extension.create-project.command.category": "Create Project",
-    "extension.create-project.command.create.title": "Create a New Project",
+    "extension.create-project.command.create.title": "Create New Empty Project",
     "extension.create-project.configuration.title": "Create Project",
     "extension.create-project.configuration.defaultFolder.description": "Controls the default folder to which the new project folder will be created.",
-    "extension.create-project.configuration.defaultName.description": "Controls the default name of the new project folder. `{randomName}` will be replaced with a random name. Use `{{` and `}}` to escape. Default is `{randomName}`."
+    "extension.create-project.configuration.defaultName.description": "Controls the default name of the new project folder. `{randomName}` will be replaced with a random name. Use `{{` and `}}` to escape. Default is `{randomName}`.",
+    "extension.create-project.configuration.explorer.enabled.description": "Controls whether the 'Create Empty Project' button is shown in the explorer sidebar",
+    "extension.create-project.viewsWelcome.contents": "You can also create a new empty project.\n[Create Empty Project](command:create-project.create)"
 }

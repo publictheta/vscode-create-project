@@ -44,6 +44,12 @@
                     "type": "string",
                     "description": "%extension.create-project.configuration.defaultName.description%",
                     "scope": "resource"
+                },
+                "create-project.explorer.enabled": {
+                    "type": "boolean",
+                    "description": "%extension.create-project.configuration.explorer.enabled.description%",
+                    "default": true,
+                    "scope": "resource"
                 }
             }
         },
@@ -53,7 +59,14 @@
                     "command": "create-project.create"
                 }
             ]
-        }
+        },
+        "viewsWelcome": [
+            {
+                "view": "explorer",
+                "contents": "%extension.create-project.viewsWelcome.contents%",
+                "when": "workspaceFolderCount == 0 && config.create-project.explorer.enabled"
+            }
+        ]
     },
     "scripts": {
         "vscode:prepublish": "npm run build",

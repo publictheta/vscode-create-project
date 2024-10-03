@@ -3,7 +3,9 @@
 ## Unreleased
 
 - Add an option to set the default name for compatibility with legacy behavior.
+- Add "Create Empty Project" button to the explorer. It is shown when no folder is open.
 - Add a prompt to confirm the parent directory creation.
+- Change the command name to "Create New Empty Project" form "Create New Project" for consistency and clarity.
 - Remove the abort notification.
 
 ## 0.2.0 - 2024-10-01
