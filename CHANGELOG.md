@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.3.0 - 2024-10-03
 
 - Add an option to set the default name for compatibility with legacy behavior.
 - Add "Create Empty Project" button to the explorer. It is shown when no folder is open.
