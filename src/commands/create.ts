@@ -76,10 +76,6 @@ export async function create() {
     })
 
     if (!input) {
-        await vscode.window.showInformationMessage(
-            vscode.l10n.t("No input. Aborted."),
-        )
-
         return
     }
 
