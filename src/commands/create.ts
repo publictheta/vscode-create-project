@@ -38,18 +38,100 @@ export async function create() {
 
     // Check `defaultFolder`
 
-    let defaultFolderUri: vscode.Uri
+    let defaultFolderUri
 
-    try {
-        defaultFolderUri = vscode.Uri.file(defaultFolder)
-    } catch {
-        await vscode.window.showErrorMessage(
-            vscode.l10n.t(
-                "Failed to parse the default folder: {0}",
-                defaultFolder,
+    if (!defaultFolder) {
+        const set: vscode.QuickPickItem = {
+            label: vscode.l10n.t("Set the default folder"),
+            description: vscode.l10n.t(
+                "Open a dialog to set the default folder",
             ),
+        }
+
+        const ignore: vscode.QuickPickItem = {
+            label: vscode.l10n.t("Ignore"),
+            description: vscode.l10n.t(
+                "Proceed without setting the default folder",
+            ),
+        }
+
+        const ignoreAlways: vscode.QuickPickItem = {
+            label: vscode.l10n.t("Ignore always"),
+            description: vscode.l10n.t(
+                "Proceed without setting the default folder and do not ask again",
+            ),
+        }
+
+        const cancel: vscode.QuickPickItem = {
+            label: vscode.l10n.t("Cancel"),
+            description: vscode.l10n.t("Abort the operation"),
+        }
+
+        const result = await vscode.window.showQuickPick(
+            [set, ignore, ignoreAlways, cancel],
+            {
+                title: vscode.l10n.t("The default folder is not set."),
+                placeHolder: vscode.l10n.t(
+                    "Do you want to set the default folder?",
+                ),
+            },
         )
-        return
+
+        switch (result) {
+            case set: {
+                const uris = await vscode.window.showOpenDialog({
+                    title: vscode.l10n.t("Select the default folder"),
+                    canSelectFiles: false,
+                    canSelectFolders: true,
+                    canSelectMany: false,
+                })
+
+                if (!uris) {
+                    return
+                }
+
+                const uri = uris[0]
+
+                await vscode.workspace
+                    .getConfiguration("create-project")
+                    .update(
+                        "defaultFolder",
+                        uri.path,
+                        vscode.ConfigurationTarget.Global,
+                    )
+
+                defaultFolderUri = uri
+                break
+            }
+            case ignoreAlways:
+                await vscode.workspace
+                    .getConfiguration("create-project")
+                    .update(
+                        "defaultFolder",
+                        "/",
+                        vscode.ConfigurationTarget.Global,
+                    )
+                break
+            case ignore:
+                break
+            case cancel:
+            default:
+                return
+        }
+    }
+
+    if (!defaultFolderUri) {
+        try {
+            defaultFolderUri = vscode.Uri.file(defaultFolder)
+        } catch {
+            await vscode.window.showErrorMessage(
+                vscode.l10n.t(
+                    "Failed to parse the default folder: {0}",
+                    defaultFolder,
+                ),
+            )
+            return
+        }
     }
 
     // Format `defaultName`
