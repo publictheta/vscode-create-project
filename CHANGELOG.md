@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add a setup prompt for the default folder if not configured.
+
 ## 0.3.1 - 2024-10-03
 
 - Fix empty name not being set as the default name.
