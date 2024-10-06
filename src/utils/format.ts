@@ -23,7 +23,7 @@ export function format(
                     return value()
                 }
 
-                return value
+                return value || ""
             }
         }
     })

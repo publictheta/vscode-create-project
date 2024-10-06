@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Add a setup prompt for the default folder if not configured.
+- Fix to unknown placeholders in the default name are replaced with a empty string instead of `undefined`.
 
 ## 0.3.1 - 2024-10-03
 
